@@ -1,0 +1,36 @@
+﻿@model rdc71.ViewModels.Account.LoginViewModel
+@{
+	ViewData["Title"] = "Login";
+}
+
+<div class="register pb-5">
+	<div class="container text-center">
+		<form method="post" class="login100-form validate-form flex-sb flex-w  ">
+			<div class="row register__form justify-content-center pt-5">
+				<div class="col-12 text-center">
+					<h2>АВТОРИЗАЦИЯ</h2>
+				</div>
+				<div class="col-12 mt-3">
+					<div class="wrap-input100 validate-input m-b-16 text-center" style="" data-validate="Password is required">
+						<input asp-for="Email" input_body" class="input100" type="text" placeholder="Email">
+						<span class="focus-input100"></span>
+					</div>
+				</div>
+				<div class="col-12 mt-1">
+					<div class="wrap-input100 validate-input m-b-16 text-center" style="" data-validate="Password is required">
+						<input asp-for="Password" input_body" class="input100" type="text" placeholder="Пароль">
+						<span class="focus-input100"></span>
+					</div>
+				</div>
+				<div class="col-12 mt-1 pb-5 mt-2 text-center">
+					<button class="send_register_form_btn btn test_btn" type="submit">АВТОРИЗИРОВАТЬСЯ</button>
+				</div>
+			</div>
+			</form>
+</div>
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

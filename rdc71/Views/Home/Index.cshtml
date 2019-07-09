@@ -1,0 +1,252 @@
+﻿@using rdc71.ViewModels.Home;
+@model  IEnumerable<TableUser>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="header__inner">
+	<div class="container">
+		<div class="row">
+			<div class="col text-center zoomIn_" style="margin-top:395px;">
+				<a asp-controller="Home" asp-action="AboutRD" class="header__button text-uppercase">О движении RD</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="rd71info">
+	<div class="container">
+		<div class="row zoomIn_">
+			<div class="col text-center rd71info__title">
+				<h1 class="text-white text-uppercase">О челлендже RD 71</h1>
+				<p class="text-white">Приняв его, ты сможешь изменить себя и свою жизнь, решись и ты почувствуешь, насколько ты изменился</p>
+			</div>
+		</div>
+		<div class="row mt-5 pb-5">
+			<div class="col-md-6 col-12 embed-responsive embed-responsive-16by9 bounceInLeft_ ">
+				<iframe class="respons" src="https://www.youtube.com/embed/MbvOxFOSpTg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="col-md-6 col-12 bounceInRight_">
+				<h4 class="text-white ml-2 pb-3">
+					Это 71 день вызова самому себе, после которых ты станешь человеком, который отличается от окружающих. Твой взгляд и походка, то как ты говоришь и действуешь, будет цеплять и пронизыв
+					ать окружающих твоей непоколебимой уверенностью! Когда ты будешь входить в комнату,
+					все будут чувствовать нечто особенное в тебе, особый характер, которы
+					й заставляет обернуться и заслуживает респекта.
+				</h4>
+				<a href="#" class="header__button">НАЧАТЬ</a>
+			</div>
+		</div>
+		<div class="row mt-5 zoomIn_">
+			<div class="col text-center pt-5">
+				<h1 class="text-white text-uppercase">Видео других людей</h1>
+			</div>
+		</div>
+		<div class="row text-center justify-content-center mt-5 zoomIn_">
+			<div class="col-md-3 col-5 embed-responsive embed-responsive-16by9 ml-3 mb-3">
+				<iframe src="https://www.youtube.com/embed/FpIBUHpRWpI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="col-md-3 col-5 embed-responsive embed-responsive-16by9 ml-3 mb-3">
+				<iframe src="https://www.youtube.com/embed/ZrSdNzz_Dv4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="col-md-3 col-5 embed-responsive embed-responsive-16by9 ml-3 mb-3">
+				<iframe src="https://www.youtube.com/embed/wCXbUNP9ZKQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="col-md-3 col-5 embed-responsive embed-responsive-16by9 ml-3 mb-3">
+				<iframe src="https://www.youtube.com/embed/CijwDMcPjQE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="col-md-3 col-5 embed-responsive embed-responsive-16by9 ml-3 mb-3">
+				<iframe src="https://www.youtube.com/embed/FXuNeDrG4yY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="col-md-3 col-5 embed-responsive embed-responsive-16by9 ml-3 mb-3">
+				<iframe src="https://www.youtube.com/embed/QB2euRbfaoc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div class="about__site pb-5">
+	<div class="container">
+		<div class="row">
+			<div class="col text-center mt-5 zoomIn_">
+				<h1 class="text-white">О сайте</h1>
+				<p class="text-white">
+					Мы предоставляем удобный интерфейс для челленджа RD 71.
+					<br /> В своем личном кабинете вы сможете отслеживать прогресс
+					<br />Очень важно иметь наглядность, видеть, сколько ты уже прошел и сколько тебе осталось.
+				</p>
+			</div>
+		</div>
+		<h2 class="text-white text-center mt-5 zoomIn_">ВАШ ПРОГРЕСС</h2>
+		<div class="row  justify-content-center rd71_proggress zoomIn_ ">
+			@for (int i = 1; i != 72; i++)
+			{
+				if (i < 22)
+				{
+					<div class="col-2 col-lg-1 text-center" style="	margin-left:-15px;margin-top:15px;">
+						<a href="#" class="rd71__oval oval__active"></a>
+					</div>
+				}
+				else
+				{
+					<div class="col-2 col-lg-1 text-center" style="	margin-left:-15px;margin-top:15px;">
+						<a href="#" class="rd71__oval  "></a>
+					</div>
+				}
+
+			}
+		</div>
+		<h2 class="text-white text-center mt-5 pb-3">ВАША СТАТИСТИКА</h2>
+		<div class="row d-flex justify-content-center">
+			<div class="col-3 col-md-3 mr-2 mt-2 about__statistic text-center zoomIn_">
+				<div class="statistic__body">
+					<h1>4</h1>
+					<p>ЦЕЛИ ЕЖЕДНЕВНО</p>
+				</div>
+				
+			</div>
+			<div class="col-3 col-md-3 mr-2 mt-2 about__statistic text-center zoomIn_ ">
+				<div class="statistic__body">
+					<h1>22</h1>
+					<p>ДНЕЙ ЗАВЕРШЕНО</p>
+				</div>
+				
+			</div>
+			<div class="col-3 col-md-3 mr-2 mt-2 about__statistic text-center zoomIn_">
+				<div class="statistic__body">
+					<h1>49</h1>
+					<p>ДНЕЙ ОСТАЛОСЬ</p>
+				</div>
+				
+			</div>
+			<div class="col-9 mt-2 about__statistic text-center zoomIn_">
+				<div class="statistic__body">
+					<h1>30%</h1>
+					<p>ПРОЦЕНТОВ ВЫПОЛНЕНО</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+@*<div class="tableusers">
+	<div class="limiter pt-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 text-center text-white">
+					<h2 class="pb-3">ТАБЛИЦА ТЕХ, КТО УЖЕ ЗАВЕРШИЛ ЧЕЛЛЕНДЖ</h2>
+				</div>
+			</div>
+			<div class="wrap-table100 mt-3">
+
+				<div class="table100 ver2 ">
+					<div class="table100-head ">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Имя</th>
+									<th class="cell100 column2">Фамилия</th>
+									<th class="cell100 column3">Email</th>
+
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table100-body js-pscroll ps ps--active-y">
+						<table>
+							<tbody>
+
+								@foreach (var item in Model)
+								{
+									<tr class="row100 body">
+										<td class="cell100 column1">@item.FirstName</td>
+										<td class="cell100 column2">@item.LastName</td>
+										<td class="cell100 column3">@item.Email</td>
+									</tr>
+								}
+
+
+							</tbody>
+						</table>
+						<div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 585px; right: 5px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 288px;"></div></div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+</div>*@
+
+<div class="contact pt-5 pb-5">
+	<div class="container mt-5">
+		<div class="row justify-content-center zoomIn_">
+			<div class="col-12 text-center text-white">
+				<h4 class="pb-3">СВЯЗЬ С НАМИ</h4>
+				<p>
+					Мы просим каждого пользователя оставить свой отзыв о сайте,<br />чтобы мы могли улучшить его. Пишите сюда все ваши проблемы и пожелания<br />
+					Каждое пожелаение будет учтено, каждый недочёт исправлен
+				</p>
+			</div>
+			<div class="col-12 col-md-5 mt-3">
+				<div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+					<input id="input_name"  class="input100" type="text" placeholder="Ваше Имя">
+					<span class="focus-input100"></span>
+				</div>
+			</div>
+			<div class="col-12 col-md-5 mt-3">
+				<div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+					<input id="input_family" class="input100" type="text" placeholder="Ваша Фамилия">
+					<span class="focus-input100"></span>
+				</div>
+			</div>
+			<div class="col-12 col-md-10 text-center mt-3 contact__body ">
+				<div class="wrap-input100 validate-input m-b-16 text-center" style="" data-validate="Password is required">
+					<input id="input_body" class="input100" type="text" placeholder="Введите ваше сообщение...">
+					<span class="focus-input100"></span>
+				</div>
+			</div>
+			<div class="col-12 text-center mt-5">
+				<a href="#" class="contact__button">ОТПРАВИТЬ</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="~/js/main.js"></script>
+@section Scripts{
+	<script type="text/javascript">
+		$(document).ready(function() {
+    $(".zoomIn_").addClass('hidden').viewportChecker({
+        classToAdd: 'visible animated zoomIn'
+    });
+    $(".bounceInLeft_").addClass('hidden').viewportChecker({
+        classToAdd: 'visible animated bounceInLeft'
+    });
+    $(".bounceInRight_").addClass('hidden').viewportChecker({
+        classToAdd: 'visible animated bounceInRight'
+    });
+		});
+		$('.contact__button').on('click', function (e) {
+			e.preventDefault();
+			var data = {
+				firstName: $('#input_name').val(),
+				lastName: $('#input_family').val(),
+				body: $('#input_body').val()
+			}
+			$.ajax({
+			type: 'PUT',
+			url: '/Home/SendReport',
+			data: data,
+			success: function () {
+				$("body").overhang({
+						type: "success",
+						message: "Ваше предложение успешно отправлено",
+						duration: 2,
+						closeConfirm: true
+					});
+			}
+		});
+		});
+		
+	</script>
+}

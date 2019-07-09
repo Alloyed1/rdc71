@@ -1,0 +1,111 @@
+﻿@model rdc71.ViewModels.Account.RegisterViewModel
+@{
+	ViewData["Title"] = "Register";
+}
+	<div class="register">
+		<div class="register pb-5">
+			<div class="container text-center">
+				<form method="post" class="login100-form validate-form flex-sb flex-w  ">
+					<div class="row register__form justify-content-center pt-5">
+						<div asp-validation-summary="ModelOnly" class="text-warning pb-3 ml-2"></div>
+						<div class="col-12 text-center">
+							<h2 class="text-uppercase">Регистрация</h2>
+						</div>
+						<div class="col-12 mt-3">
+							<div class="wrap-input100 validate-input m-b-16 text-center" style="" data-validate="Password is required">
+								<input asp-for="Email" input_body" class="input100" type="text" placeholder="Email">
+								<span class="focus-input100"></span>
+							</div>
+						</div>
+						<div class="col-12 col-md-6 mt-4">
+							<div class="wrap-input100 validate-input m-b-16 text-center" style="" data-validate="Password is required">
+								<input asp-for="Password" input_body" class="input100" type="text" placeholder="Пароль">
+								<span class="focus-input100"></span>
+							</div>
+						</div>
+						<div class="col-12 col-md-6 mt-md-4">
+							<div class="wrap-input100 validate-input m-b-16 text-center" style="" data-validate="Password is required">
+								<input asp-for="PasswordConfirm" input_body" class="input100" type="text" placeholder="Подтвердите пароль">
+								<span class="focus-input100"></span>
+							</div>
+						</div>
+						<div class="col-12 col-md-6 mt-2">
+							<div class="wrap-input100 validate-input m-b-16 text-center" style="" data-validate="Password is required">
+								<input asp-for="FirstName" input_body" class="input100" type="text" placeholder="Имя">
+								<span class="focus-input100"></span>
+							</div>
+						</div>
+						<div class="col-12 col-md-6 mt-md-2">
+							<div class="wrap-input100 validate-input m-b-16 text-center" style="" data-validate="Password is required">
+								<input asp-for="LastName" input_body" class="input100" type="text" placeholder="Фамилия">
+								<span class="focus-input100"></span>
+							</div>
+						</div>
+						<div class="col-12 mt-1 pb-5 mt-2 text-center">
+							<button class="send_register_form_btn btn test_btn" type="submit">РЕГИСТРАЦИЯ</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="container">
+			<div class="limiter">
+				<div class="container-login100">
+					<div class="wrap-login100 p-t-50 p-b-90">
+						<form method="post" class="login100-form validate-form flex-sb flex-w ">
+							<div class="row">
+								<div class="col-12">
+									<h3 class="pb-4 autoriz">Регистрация</h3>
+								</div>
+							</div>
+							<div asp-validation-summary="ModelOnly" class="text-warning pb-3 ml-2"></div>
+							<div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
+								<input asp-for="Email" class="input100" type="text" placeholder="Email">
+								<span class="focus-input100"></span>
+							</div>
+							<div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
+								<input asp-for="FirstName" class="input100" type="text" placeholder="Имя">
+								<span class="focus-input100"></span>
+							</div>
+							<div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
+								<input asp-for="LastName" class="input100" type="text" placeholder="Фамилия">
+								<span class="focus-input100"></span>
+							</div>
+
+							<div class="wrap-input100 validate-input m-b-16 mt-5" data-validate="Password is required">
+								<input asp-for="Password" class="input100" type="password" placeholder="Пароль">
+								<span class="focus-input100"></span>
+							</div>
+							<div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+								<input asp-for="PasswordConfirm" class="input100" type="password" placeholder="Подтвердите пароль">
+								<span class="focus-input100"></span>
+							</div>
+							<div class="flex-sb-m w-full p-t-3 p-b-24">
+								<div class="contact100-form-checkbox">
+									<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+									<label class="label-checkbox100" for="ckb1">
+										Запомнить меня
+									</label>
+								</div>
+								@*<div>
+									<a href="#" class="txt1">
+										Forgot?
+									</a>
+								</div>*@
+							</div>
+							<div class="container-login100-form-btn m-t-17">
+								<button class="login100-form-btn" type="submit">
+									ЗАРЕГИСТРИРОВАТЬСЯ
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

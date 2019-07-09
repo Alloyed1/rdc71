@@ -1,0 +1,101 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"]</title>
+
+	<environment include="Development">
+		<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+	</environment>
+	<environment exclude="Development">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+			  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+			  crossorigin="anonymous"
+			  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+	</environment>
+	<link rel="stylesheet" href="~/css/site.css" />
+	<link rel="stylesheet" href="~/css/util.css" />
+
+	<link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css">
+
+	<link rel="stylesheet" type="text/css" href="~/vendor/animsition/css/animsition.min.css">
+
+	<link rel="stylesheet" type="text/css" href="~/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="~/vendor/perfect-scrollbar/perfect-scrollbar.css">
+
+	<link rel="stylesheet" type="text/css" href="~/vendor/daterangepicker/daterangepicker.css">
+</head>
+<body>
+	<header>
+		<div class="header__top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-sm-10 mt-3 d-flex ">
+						<div>
+							<a class="text-white header__logo" asp-action="Index" asp-controller="Home">RD 71</a>
+						</div>
+
+						<div class="ml-auto mt-3 d-inline-flex">
+							@if (!User.Identity.IsAuthenticated)
+							{
+								<a asp-controller="Account" asp-action="Register" class="header__link">Регистрация</a>
+								<a asp-controller="Account" asp-action="Login" class="ml-4 header__link">Войти</a>
+							}
+							else
+							{
+								<a asp-controller="Profile" asp-action="Index" asp-route-userEmail="@User.Identity.Name" class="header__link">Профиль</a>
+								<form class="ml-auto pl-4" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+									<button type="submit" class="btn header__link">Выйти</button>
+								</form>
+							}
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</header>
+
+	<main role="main" class="">
+		@RenderBody()
+	</main>
+
+	<link rel="stylesheet" href="~/css/animate.css">
+	<environment include="Development">
+		<script src="~/lib/jquery/dist/jquery.js"></script>
+		<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+	</environment>
+	<environment exclude="Development">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+				asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+				asp-fallback-test="window.jQuery"
+				crossorigin="anonymous"
+				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+		</script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+				asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+				asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+				crossorigin="anonymous"
+				integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+		</script>
+	</environment>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="~/js/jquery.viewportchecker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="~/js/dist/overhang.min.css" />
+	<script type="text/javascript" src="~/js/dist/overhang.min.js"></script>
+	<script src="~/vendor/select2/select2.min.js" type="415c68c2307a8c2506a5cca9-text/javascript"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap&subset=cyrillic" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+	@RenderSection("Scripts", required: false)
+</body>
+</html>

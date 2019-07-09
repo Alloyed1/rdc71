@@ -1,0 +1,439 @@
+﻿@model rdc71.ViewModels.Profile.ProfileViewModel
+@{
+	ViewData["Title"] = "Index";
+}
+<div class="profile">
+	<div class="container">
+		@*<div id="oval_progress">
+			<h2 class="text-white text-center pt-5 zoomIn_">ВАШ ПРОГРЕСС</h2>
+			<div class="row  justify-content-center rd71_proggress zoomIn_ ">
+				<div v-for="(items, Index) in userDaysComplete" class="col-2 col-lg-1 text-center" style="	margin-left:-15px;margin-top:15px;">
+					{{Index}} {{items}}
+				</div>
+			</div>
+		</div>*@
+		@if (ViewBag.IsStart)
+		{
+			<h2 class="text-white text-center pt-5 zoomIn_">ВАШ ПРОГРЕСС</h2>
+			<div class="row  justify-content-center rd71_proggress zoomIn_ ">
+				@for (int i = 0; i < 71; i++)
+				{
+					if (i < Model.LastChallenge.DaysComplete)
+					{
+						<div class="col-2 col-lg-1 text-center" style="	margin-left:-15px;margin-top:15px;">
+							<a href="#" class="rd71__oval oval__active" data-num="@i" value="@i"></a>
+						</div>
+					}
+					else
+					{
+						<div class="col-2 col-lg-1 text-center " style="	margin-left:-15px;margin-top:15px;">
+							<a class="rd71__oval " data-num="@i" href="#"></a>
+						</div>
+					}
+
+				}
+			</div>
+
+			<div id="taskblocking">
+				
+			</div>
+
+			<div class="row justify-content-center hidden" id="main_block">
+				<div class="col-12 text-center text-white mt-4 pb-3">
+					<h2 class="challenge__title">ВАШИ ЗАДАЧИ </h2>
+					<p>( НАЖМИТЕ, ЧТОБЫ ОТМЕТИТЬ ВЫПОЛНЕНИ )</p>
+				</div>
+				<div v-on:click="clickOnBlock(1)" v-bind:class="{ challenge__info__active: (dayProgressLST[1] == 1)  }" class="col-11 col-md-5 challenge__info  text-center task__block" data-tasbloclid="1">
+					<div class="statistic__body">
+						<h2>ПЛАН ПИТАНИЯ:</h2>
+						<h4 class="text-uppercase pt-2">
+							{{ userTasks[0] }}
+						</h4>
+					</div>
+				</div>
+				<div v-on:click="clickOnBlock(2)" v-bind:class="{ challenge__info__active: (dayProgressLST[2] == 1)  }" class="col-11 col-md-5 block_setting_one challenge__info text-center task__block" data-tasbloclid="2">
+					<div class="statistic__body">
+						<h3 class="text-uppercase pt-2">Прочитать минимум 10 страниц</h3>
+					</div>
+				</div>
+				<div v-on:click="clickOnBlock(3)" v-bind:class="{ challenge__info__active: (dayProgressLST[3] == 1)  }" class="col-11 col-md-5 block_setting_two challenge__info text-center task__block" data-tasbloclid="3">
+					<div class="statistic__body">
+						<h3 class="text-uppercase pt-3" >Тренировка 45 минут</h3>
+					</div>
+				</div>
+				<div v-for="(item, index) in userTasks" v-bind:class="{ challenge__info__active: (dayProgressLST[index + 4] == 1)  }" v-if="index != (userTasks.length - 1)" v-on:click="clickOnBlock(index + 4)" class="col-11 col-md-5 block_setting_three challenge__info text-center task__block" :data-tasbloclid="(index + 4)">
+					<div class="statistic__body mt-1">
+						<h5 class="text-danger">ВАША ЦЕЛЬ № {{ index + 1 }}</h5>
+						<h4 class="text-uppercase pt-2">
+							{{ userTasks[index + 1] }}
+						</h4>
+					</div>
+				</div>
+
+			</div>
+			<h2 class="text-white text-center pt-5 pb-3">ВАША СТАТИСТИКА</h2>
+			<div class="row d-flex justify-content-center" id="user_stats">
+				<div class="col-3 col-md-3 mr-2 mt-2 about__statistic text-center zoomIn_">
+					<div class="statistic__body">
+						<h1>{{ taskCout }}</h1>
+						<p>ЦЕЛИ ЕЖЕДНЕВНО</p>
+					</div>
+
+				</div>
+				<div class="col-3 col-md-3 mr-2 mt-2 about__statistic text-center zoomIn_ ">
+					<div class="statistic__body">
+						<h1>{{ dayComplete}}</h1>
+						<p>ДНЕЙ ЗАВЕРШЕНО</p>
+					</div>
+
+				</div>
+				<div class="col-3 col-md-3 mr-2 mt-2 about__statistic text-center zoomIn_">
+					<div class="statistic__body">
+						<h1>{{ dayToEnd }}</h1>
+						<p>ДНЕЙ ОСТАЛОСЬ</p>
+					</div>
+
+				</div>
+				<div class="col-9 mt-2 about__statistic text-center zoomIn_">
+					<div class="statistic__body">
+						<h1>{{ percentComplete }}</h1>
+						<p>ПРОЦЕНТОВ ВЫПОЛНЕНО</p>
+					</div>
+				</div>
+
+			</div>
+		}
+		else
+		{
+	<div class="row justify-content-center" id="main_block">
+		<div class="col-12 text-center text-white mt-4 pb-3">
+			<h2 class="challenge__title">УСЛОВИЯ ЧЕЛЛЕНДЖА<br />( ЕЖЕДНЕВНО )</h2>
+		</div>
+		<div class="text-center col-10" id="btn_already">
+			<button class="btn alreadystart_btn">Уже начали челлендж?</button>
+		</div>
+		<div class="col-11 col-md-5 challenge__info text-center block-task-add" id="" data-blockid="1">
+			<div class="statistic__body pb-2">
+				<p class="text-uppercase pt-2">
+					Питание. Выбери план питания и следуем ему чётко и без уклонений! Если это питание для похудения - никакого сладкого, все 71 день
+				</p>
+				<button class="btn btn_eat button_fat">НАБОР</button>
+				<button class="btn btn_eat button_uder">УДЕРЖАНИЕ</button>
+				<button class="btn btn_eat button_dieta">ДИЕТА</button>
+			</div>
+		</div>
+		<div class="col-11 col-md-5 block_setting_one challenge__info text-center block-task-add" id="blockid" data-blockid="2">
+			<div class="statistic__body">
+				<p class="text-uppercase pt-2 mt-4">Читай минимум 10 страниц развивающей литературы каждый день</p>
+			</div>
+		</div>
+		<div class="col-11 col-md-5 block_setting_two challenge__info text-center  block-task-add" id="blockid" data-blockid="3">
+			<div class="statistic__body">
+
+				<p class="text-uppercase pt-2">Тренировки. 45 минут минимум, каждый день! Это может быть любое направление: железо, свой вес, бег, растяжка или даже ходьба</p>
+			</div>
+		</div>
+		<div class="col-11 col-md-5 block_setting_three challenge__info text-center block-task-add" data-blockid="4">
+			<div class="statistic__body mt-3">
+				<div class="wrap-input100 validate-input m-b-16" id="input_num2" >
+					<input v-model="textInput" class="input100 challenge__input inputnum_2" :placeholder="message">
+					<span class="focus-input100"></span>
+
+					<h3></h3>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+			<div class="row mt-4 justify-content-center">
+				<div class="col-12  text-center">
+					<button class="add_block btn">Добавить ещё</button>
+				</div>
+			</div>
+			<div class="row ">
+				<div class="col-12  start__block text-center ">
+					<button class="profile__start btn">Начать челлендж</button>
+				</div>
+			</div>
+		}
+	</div>
+	
+</div>
+
+
+@section Scripts{
+	<script type="text/javascript">
+	 let addButton = false;
+	 let activeButtonEet = null;
+	let countBlock = 1;
+	var dayProgressList = @Html.Raw(Json.Serialize(Model.DayProgress));
+
+		var task = [];
+
+		var input_vuejs = new Vue({
+			el: '#input_num2',
+			data: {
+				message: 'Введите 4 цель ( минимум 7 букв )',
+				textInput: '',
+			},
+			watch: {
+				textInput: function () {
+					alert(123);
+					if (this.textInput.length > 7) {
+						$('.profile__start').removeAttr('disabled', true);
+					}
+					else {
+						$('.profile__start').attr('disabled', true);
+					}
+				}
+			}
+
+		});
+		
+		
+		var main_block = new Vue({
+			el: '#main_block',
+			data: {
+				userTasks: [],
+				dayProgressLST: dayProgressList
+			},
+			mounted() {
+				axios
+					.get('/Profile/GetUserTaskChallenge', {
+						params: {
+							userEmail: '@User.Identity.Name'
+						}
+					})
+					.then(response => (this.userTasks = response.data));
+			},
+			methods: {
+				clickOnBlock: function (count) {
+					 var data = {
+						 userEmail: '@User.Identity.Name',
+						 taskNumber: count,
+						 DayNumber: '@(Model.LastChallenge.DaysComplete + 1)'
+					};
+
+					console.log(data);
+
+					 $.ajax({
+						type: 'POST',
+						 url: '/Profile/MarkTask',
+						 data: data,
+						 success: function (response) {
+							 if (response == 3) {
+								 $("body").overhang({
+									type: "success",
+									message: "УРА! ВЫ ЗАВЕРШИЛИ ЧЕЛЛЕНДЖ",
+									duration: 2,
+									closeConfirm: true
+								});
+							 }
+							 if (response == 2) {
+								 $("body").overhang({
+									type: "success",
+									message: "Вы успешно отметили это задание",
+									duration: 2,
+									closeConfirm: true
+								 });
+								 $('div').find("[data-tasbloclid='" + count + "']").addClass('challenge__info__active');
+							 }
+							 else if (response == 0) {
+								 $("body").overhang({
+									type: "error",
+									message: "Упс, кажется, вы уже выполнили это",
+									duration: 2,
+									closeConfirm: true
+								});
+							 }
+							 else if (response == 1) {
+								 $("body").overhang({
+									type: "warn",
+									message: "Вы успешно завершили день",
+									duration: 2,
+									overlay: true
+								});
+								  $('div').find("[data-tasbloclid='" + count + "']").addClass('challenge__info__active');
+								 setTimeout(function () {
+									 location.reload();
+								 }, 2000);
+
+							 }
+						 }
+					 });
+						}
+			}
+		});
+		@*var oval_progress = new Vue({
+			el: '#oval_progress',
+			data: {
+				userDaysComplete: []
+			},
+			mounted() {
+				axios
+					.get('/Profile/GetUserDayProgress', {
+						params: {
+							userEmail: '@User.Identity.Name'
+						}
+					})
+					.then(response => (this.userDaysComplete = response.data));
+			}
+		});*@
+
+		if ($('#user_stats').length != 0) {
+				var info_user = new Vue({
+				el: '#user_stats',
+					data: {
+						taskCout: (dayProgressList.length - 1),
+					dayComplete: @Model.LastChallenge.DaysComplete,
+					dayToEnd: @(71 - Model.LastChallenge.DaysComplete),
+					percentComplete: '@(Math.Round((double)Model.LastChallenge.DaysComplete / 71 * 100, 0)) %'
+				}
+			});
+		}
+
+	 $(document).ready(function () {
+		 var data = {
+			 userEmail: '@User.Identity.Name'
+		 };
+		 if (data['userEmail'] == "jenya.moxov@gmail.com") {
+			 $('#main_block').removeClass('hidden');
+		 }
+		 else {
+			 $.ajax({
+			 type: 'POST',
+			 url: '/Profile/CanMark',
+			 data: data,
+			 success: function (res) {
+					 if (res == 1) {
+					 $('#taskblocking').append('<div class="container"><div class="row text-center mt-5"><div class="col-12"><h1 class="text-danger">ВЫ УЖЕ ВЫПОЛНИЛИ ЗАДАНИЯ СЕГОДНЯ, <br />ПРИХОДИТЕ ЗАВТРА</h1></div></div></div>');
+					 $('#main_block').remove();
+				 }
+				 else {
+					 $('#main_block').removeClass('hidden');
+				 }
+				 
+			 }
+			});
+		 }
+		
+	 });
+		$('.alreadystart_btn').on('click', function () {
+			$(this).addClass('animated bounceOut');
+			setTimeout(function () {
+				$('.alreadystart_btn').remove();
+				$('#btn_already').append('<div class="wrap-input100 animated fadeIn validate-input m-b-16" data-validate="Username is required"><input id="input_daycomplete" class="input100" type="number" placeholder="Введите кол-во дней, которые вы уже завершили"><span class="focus-input100"></span></div>');
+			}, 1000);
+			
+		});
+
+	 $('.btn_eat').on('click', function () {
+		 var btn = this;
+		 $(this).removeClass('btn_eat_active');
+
+		 if (btn == activeButtonEet) {
+			 $('.btn_eat').each(function () {
+				 $(this).removeAttr("disabled");
+			 });
+			 activeButtonEet = null;
+			 return true;
+
+		 }
+		 $('.btn_eat').each(function (e) {
+			 if (btn == this) {
+				 $(this).addClass('btn_eat_active', true);
+				 activeButtonEet = btn;
+			 }
+			 else {
+				 $(this).attr('disabled', true);
+			 }
+		 });
+	 });
+
+	 $('.profile__start').on('click', function () {
+
+		 if (activeButtonEet == null) {
+			 $("body").overhang({
+						type: "warn",
+						message: "Выберите план диеты ",
+						duration: 2,
+						closeConfirm: true
+					});
+			 return true;
+		 }
+		 else {
+			 task.push($(activeButtonEet).text());
+		 }
+
+		 $('.challenge__input').each(function () {
+			 task.push($(this).val());
+		 });
+		 var countDay = parseInt($('#input_daycomplete').val());
+
+		 if ($('#input_daycomplete').val() == null) {
+			 countDay = 0;
+		 }
+
+		 else  if (countDay > 30 || countDay < 0) {
+			 $("body").overhang({
+				 type: "error",
+				 message: "Возможные значения для ввода кол-ва выполненых дней от 0 до 30",
+				 duration: 2,
+			 });
+			 return true;
+		 }
+		 
+
+		 var data = {
+			 userEmail: '@User.Identity.Name',
+			 userTask: task,
+			 countDay: countDay
+		 };
+
+
+		 $.ajax({
+			type: 'POST',
+			 url: '/Profile/StartChallenge',
+			 data: data,
+			 success: function () {
+				 location.reload();
+			 }
+		 });
+
+	 })
+	 $('.add_block').on('click', function () {
+		 if (addButton == false) {
+			 $(this).parent().append('<button onclick="DeleteInput()" class="add_block delete_last_button btn">Удалить последний</button>');
+			 addButton = true;
+		 }
+
+		 var count = $('.block-task-add').length;
+		 $('#main_block').append('<div class="col-11 animated zoomIn col-md-5 block_setting_three challenge__info text-center block-task-add" id="" data-blockid="' + (count + 1) + '"><div class="statistic__body mt-3"><div class="wrap-input100 validate-input m-b-16" data-validate="Username is required"><input class="input100 challenge__input inputnum_2" type="text" placeholder="Введите ' + (count + 1) + ' цель"> <span class="focus-input100"></span> </div></div></div>');
+
+	 });
+	 function DeleteInput() {
+		 var count = $('.block-task-add').length;
+		 if (count > 4){
+			 $('.challenge__info').last().remove();
+		 }
+		 if (count == 5) {
+			 $('.delete_last_button').remove();
+			 addButton = false;
+		 }
+
+	 };
+
+	 $('.rd71__oval').on('click', function () {
+		 if (@(Model.LastChallenge.DaysComplete + 1) != $(this).data('num')) {
+			 alert('Ошибка');
+		 }
+		 else {
+			 $(this).addClass('oval__active');
+		 }
+
+	 });
+
+	</script>
+}
+

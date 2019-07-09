@@ -1,0 +1,410 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.header__top {
+    background: black;
+    opacity: 0.89;
+	padding-bottom:10px;
+}
+
+.header__link {
+	text-decoration: none;
+	color: white;
+	padding: 10px 15px 10px 15px;
+	background: blue;
+	border-radius: 30px;
+	transition: background 0.2s linear;
+}
+.header__logo{
+	text-decoration:none;
+	font-size:36px;
+	padding:0;
+}
+	.header__logo:hover {
+		text-decoration: none;
+	}
+input, textarea {
+	outline: none;
+}
+
+.header__link:hover {
+	text-decoration: none;
+	color: white;
+	padding: 10px 15px 10px 15px;
+	background: orange;
+	border-radius: 30px;
+}
+
+.header__inner {
+	background-image: url('../img/main_page_poster_02.png');
+	background-position:center;
+	height:500px;
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+	margin-bottom: 60px;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px;
+    /* Vertically center the text there */
+}
+.hidden{
+	opacity: 0;
+}
+.visible {
+	opacity: 1;
+}
+
+.header__button {
+	/*border: 4px #ffffff solid;*/
+	font-size: 40px;
+	padding: 16px 19px 16px 19px;
+	background: #0092ff;
+	text-decoration: none;
+	color: white;
+	border-radius: 40px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	transition: background 0.15s linear;
+}
+	.header__button:hover {
+		padding: 16px 19px 16px 19px;
+		border:none;
+		background:#d5224e;
+		text-decoration: none;
+		color: white;
+	}
+
+.rd71info{
+	background: #141313;
+}
+h4 {
+	font-size: 24px;
+}
+.rd71info .header__button{
+	font-size: 30px;
+	padding: 7px 15px 7px 15px;
+}
+.rd71info__title {
+	margin-top: 70px;
+}
+.rd71info h4{
+	margin-top:15px;
+}
+
+.about__site {
+	background: #141313;
+}
+.rd71__oval {
+	text-decoration: none;
+	color: white;
+	border: 3px white solid;
+	border-radius: 55%;
+	padding: 0px 18px 0px 18px;
+	font-size: 30px;
+	box-shadow: 0 0 3px blue;
+	transition: background 0.12s linear;
+}
+	.rd71__oval:hover {
+		background: #fb1616;
+	}
+.oval__active{
+	background:#fb1616;
+}
+.about__site h1 {
+	font-size: 55px;
+}
+
+.about__statistic {
+	border: 4px white solid;
+	color: #0092ff;
+	transition: background 0.18s linear;
+}
+.about__statistic:hover {
+	background: white;
+}
+
+.contact {
+	background: #141313;
+}
+.contact__body {
+	width: 83%;
+	height: 70px;
+}
+.contact__input{
+	border-radius:20px;
+}
+
+.aboutRD {
+	background: #141313;
+	height:2000px;
+}
+.test{
+	border: 3px red solid;
+}
+
+.contact__button {
+	text-decoration: none;
+	color: white;
+	width: 83%;
+	border-radius: 30px;
+	padding: 15px 38% 15px 38%;
+	border: 3px orange solid;
+	transition: background,color, 0.15s linear;
+}
+
+.register {
+	background: #141313;
+	height:800px;
+}
+.register__input{
+	width:100%;
+	border-radius:10px;
+}
+
+.contact__button:hover {
+	text-decoration: none;
+	color: black;
+	background: orange;
+}
+.password__input{
+	margin-top: 3rem;
+}
+.register__button {
+	text-decoration: none;
+	padding: 15px 40px 15px 40px;
+	background: #3c94ff;
+	color: black;
+	border-radius: 30px;
+	transition: background 0.15s linear;
+	outline: none;
+}
+.register__button:hover {
+	text-decoration: none;
+	background:orange;
+	color:black;
+}
+*{
+	outline: none !important
+}
+.form_reg{
+	width:100%;
+	height:100%;
+}
+.profile {
+	height: 2000px;
+	background: #141313;
+}
+
+.profile__start{
+	text-decoration: none;
+	margin-top:40px;
+	padding: 15px 80px;
+	background: orange;
+	color:white;
+	transition: background 0.15s linear;
+}
+.profile__start:hover {
+	text-decoration: none;
+	background: red;
+	color:white;
+	
+}
+.start__block{
+}
+.challenge__info{
+	background: white;
+	transition: background 0.2s linear;
+}
+.challenge__info:hover{
+	background:#0092ff;
+	cursor: pointer;
+}
+.challenge__info__active {
+	background: #0092ff;
+}
+.block_setting_one{
+	margin-left: 10px;
+}
+.block_setting_two {
+	margin-top: 10px;
+}
+.block_setting_three {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.add_block{
+	padding: 15px 30px;
+	border: 3px white solid;
+	color: white;
+	transition: 0.15s;
+}
+.add_block:hover {
+	background: white;
+	color: black;
+}
+.btn_eat {
+	padding: 8px 24px;
+	background: #b63737;
+	border-radius: 20px;
+	color:white;
+	box-shadow: 0 0 5px black;
+	transition: 0.3s;
+	margin-left:10px;
+}
+.btn_eat:hover {
+	background: orange;
+	color: black;
+}
+.btn_eat_active {
+	background: orange;
+	color: black;
+}
+@media only screen and (max-device-width: 480px) {
+	.header__button {
+			font-size: 30px;
+		}
+	.challenge__info {
+		padding: 5px 3px 5px 3px;
+	}
+	.challenge__title{
+		font-size: 19px;
+	}
+	.btn_eat {
+		font-size:11px;
+	}
+	.add_block{
+		margin-top:15px;
+	}
+
+	.rd71__oval {
+		text-decoration: none;
+		color: white;
+		border: 3px white solid;
+		border-radius: 50%;
+		padding: -1px 10px 3px 10px;
+		margin-left: -19px;
+	}
+	.rd71__oval:hover {
+		cursor:pointer;
+	}
+	
+	.profile__start {
+		margin-top: 13px;
+
+	}
+		.rd71_proggress {
+			margin-left: 2px
+		}
+		.statistic__body{
+			font-size:8px;
+		}
+		.contact__button {
+			padding: 15px 100% 15px 100%;
+		}
+	}
+@media only screen and (max-device-width: 769px) {
+	.rd71info .header__button {
+		margin-left: 35%;
+	}
+
+	.rd71info h4 {
+		font-size: 17px;
+	}
+
+	.block_setting_one {
+		margin: 0;
+		margin-top: 10px;
+	}
+
+	.block_setting_two {
+		margin: 0;
+		margin-top: 10px;
+	}
+
+	.block_setting_three {
+		margin: 0;
+		margin-top: 10px;
+	}
+		.register__input {
+			margin-bottom: 20px;
+		}
+		.contact__body {
+			width: 100%;
+		}
+		.contact__button {
+			padding: 15px 70% 15px 70%;
+		}
+		.password__input {
+			margin-top: 0rem;
+		}
+	}
+	@media only screen and (max-device-width: 991px){
+		.contact__button {
+			padding: 15px 36% 15px 36%;
+
+		}
+		.password__input {
+			margin-top: 20px;
+		}
+	}
+	@media only screen and (min-device-width: 990px ){
+		.rd71_proggress {
+			padding-left: 40px
+		}
+	}
+
+
+

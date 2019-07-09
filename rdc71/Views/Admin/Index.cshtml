@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+	<div class="admin_main" id="admin_panel">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+				<h1 class="text-white text-center pb-4 pt-5">РЕПОРТЫ</h1>
+				</div>
+			</div>
+			<table class="table table-sm table-dark pt-5">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Имя</th>
+						<th scope="col">Фамилия</th>
+						<th scope="col">Сообщение</th>
+						<th scope="col">Время</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr v-for="item in reportList">
+						<th scope="row">{{ item.id }}</th>
+						<th scope="row">{{ item.firstName }}</th>
+						<th scope="row">{{ item.lastName }}</th>
+						<th scope="row">{{ item.bodyReport }}</th>
+						<th scope="row">{{ item.sendDate }}</th>
+					</tr>
+			</table>
+		</div>
+		
+	</div>
+@section Scripts{ 
+	<script type="text/javascript">
+		var admin_panel = new Vue({
+			el: '#admin_panel',
+			data: {
+				reportList: []
+			},
+			mounted() {
+				axios
+					.get('/Admin/GetUserReport')
+					.then(response => (this.reportList = response.data));
+			}
+		});
+	</script>
+}
+	
+

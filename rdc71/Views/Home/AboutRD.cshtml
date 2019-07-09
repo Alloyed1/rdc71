@@ -1,0 +1,72 @@
+﻿
+@{
+	ViewData["Title"] = "AboutRD";
+}
+
+<div class="aboutRD">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h2 class="text-white mt-5 pb-5 zoomIn_">О ДВИЖЕНИИ RD</h2>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-5 embed-responsive embed-responsive-16by9 bounceInLeft_">
+				<iframe src="https://www.youtube.com/embed/Z8_SXpftEcA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="col-12 col-md-5 mt-1 bounceInRight_">
+				<div class="mt-4 ml-4 mr-4 mb-4" style="border: 2px white solid;background:white;">
+					<p class="text-dark mt-2 ml-2 mr-2 mb-2">
+						Компания Road to the Dream – это не отдельный человек или команда, Road to the Dream – это каждый, кто живет с мечтой в сердце и готов прикладывать усилия для ее достижения!
+
+						Родившись как надпись для мотивационной стены, сейчас это бренд, который живет в сердцах у тысяч людей и вдохновляет каждого сражаться за свои мечты!
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center mt-5">
+
+			<div class="col-12 col-md-5 mt-1 bounceInLeft_">
+				<div class="mt-4 ml-4 mr-4 mb-4" style="border: 2px white solid;background:white;">
+					<p class="text-dark mt-2 ml-2 mr-2 mb-2">
+						Этот пост посвящается всем, кто сейчас вжаривает на работе, которая нужна ему только для поддержания жизни! Не дай этой нелюбимой работе стать твоей зоной комфорта, рви, что есть сил, в свободное время, пробивай второй путь, пускай сейчас ты на дне, пускай денег хватает только на еду, пускай телефон выпадает из рук, когда после ночной смены ты засыпаешь читая в метро, пускай тебя не понимают, когда вместо тусовки ты идёшь на вторую работу, чтобы скопить денег на реализацию твоей мечты
+					</p>
+				</div>
+			</div>
+			<div class="col-12 col-md-5 embed-responsive embed-responsive-16by9 bounceInRight_">
+				<iframe src="https://www.youtube.com/embed/yDW32_Ji37k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+
+
+		</div>
+		<div class="row justify-content-center mt-5 ">
+			<div class="col-12 col-md-5 embed-responsive embed-responsive-16by9 bounceInLeft_">
+				<iframe src="https://www.youtube.com/embed/ed1cCNPmLvc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="col-12 col-md-5 mt-1 bounceInRight_">
+				<div class="mt-4 ml-4 mr-4 mb-4" style="border: 2px white solid;background:white;">
+					<p class="text-dark mt-2 ml-2 mr-2 mb-2">
+						Никогда не теряй картину финальной победы. Представляй ее вкус, чувствуй мурашки по коже, ощущай гордость и благодарность переполняющую тебя в грядущий момент достижения. Потому что в ту секунду, когда ты потеряешь ощущение всего этого, ежедневная боль от преодоления себя станет единственным что ты видишь, и ты сдашься, так и достигнув победы.
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+@section Scripts{
+	<script type="text/javascript">
+		$(document).ready(function() {
+    $(".zoomIn_").addClass('hidden').viewportChecker({
+        classToAdd: 'visible animated zoomIn'
+    });
+    $(".bounceInLeft_").addClass('hidden').viewportChecker({
+        classToAdd: 'visible animated bounceInLeft'
+    });
+    $(".bounceInRight_").addClass('hidden').viewportChecker({
+        classToAdd: 'visible animated bounceInRight'
+    });
+});
+	</script>
+}
+
